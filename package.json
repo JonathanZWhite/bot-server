@@ -1,5 +1,5 @@
 {
-  "name": "kik-bot-starterkit",
+  "name": "bot-server",
   "version": "1.0.0",
   "description": "server architecture for building bots",
   "main": "server.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JonathanZWhite/kik-bot-startkit.git"
+    "url": "git+https://github.com/JonathanZWhite/bot-server.git"
   },
   "author": "Jonathan White",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/JonathanZWhite/kik-bot-startkit/issues"
+    "url": "https://github.com/JonathanZWhite/bot-server/issues"
   },
-  "homepage": "https://github.com/JonathanZWhite/kik-bot-startkit#readme",
+  "homepage": "https://github.com/JonathanZWhite/bot-server#readme",
   "devDependencies": {
     "nodemon": "^1.9.1"
   },
