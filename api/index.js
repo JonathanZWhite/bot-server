@@ -2,8 +2,8 @@ const _ = require('lodash-node');
 const logger = require('../utils/logger');
 const Promise = require('bluebird')
 
-const Weather = require('../handlers/weatherHandler')
-const weather = new Weather()
+const Music = require('../handlers/music')
+const music = new Music()
 
 /**
  * ## Handler
@@ -12,17 +12,18 @@ const weather = new Weather()
  * data from the request and returns a sensible JSON response.
  */
 function handle(apiMethod) {
-  console.log('HANDLING')
-
   return apiMethod().then((response) => {
+    // converts response to array
+    response = response instanceof Array ? response : [response]
+
     return Promise.resolve(response)
   })
   .catch(() => {
-    logger.log('error', 'ERR: ' + err);
+    logger.log('error', 'ERROR: ' + err);
   })
 }
 
 module.exports = {
   handle: handle,
-  weather: weather
+  music: music
 };

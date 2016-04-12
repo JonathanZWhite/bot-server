@@ -21,6 +21,8 @@
   },
   "dependencies": {
     "bluebird": "^3.3.5",
+    "es6-promise": "^3.1.2",
+    "isomorphic-fetch": "^2.2.1",
     "lodash-node": "^3.10.2",
     "node-telegram-bot-api": "^0.21.1",
     "winston": "^2.2.0"
