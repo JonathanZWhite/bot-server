@@ -1,0 +1,27 @@
+{
+  "name": "kik-bot-starterkit",
+  "version": "1.0.0",
+  "description": "server architecture for building bots",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanZWhite/kik-bot-startkit.git"
+  },
+  "author": "Jonathan White",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JonathanZWhite/kik-bot-startkit/issues"
+  },
+  "homepage": "https://github.com/JonathanZWhite/kik-bot-startkit#readme",
+  "devDependencies": {
+    "nodemon": "^1.9.1"
+  },
+  "dependencies": {
+    "lodash-node": "^3.10.2",
+    "node-telegram-bot-api": "^0.21.1",
+    "winston": "^2.2.0"
+  }
+}
