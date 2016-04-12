@@ -1,10 +1,12 @@
 'use strict'
 
+const Promise = require('bluebird')
+
 class WeatherHandler {
   constructor() {}
 
   getWeather() {
-    return 'weather 🐣'
+    return Promise.resolve('weather 🐣')
   }
 }
 
