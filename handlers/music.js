@@ -7,21 +7,20 @@ const logger = require('../utils/logger')
 class Music {
   constructor() {}
 
-  get() {
+  get(message, bot) {
     return MusicService.get()
       .then((resp) => {
-        return {
-          type: 'text',
-          content: [{
-            text: 'Why not give this a listen 💃',
-          }, {
-            text: resp,
+        console.log(resp)
+        bot.sendMessage(message.from, 'Why not give this a listen 💃')
+
+        bot.sendMessage(message.from, resp, {
+          reply_markup: {
             keyboard: [
               ['I like it'],
               ['Not that great']
             ]
-          }]
-        }
+          }
+        })
       })
       .catch(() => {
         logger.log('error', 'ERROR: ' + err);
