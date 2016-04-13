@@ -14,7 +14,7 @@ const music = new Music()
 function handle(apiMethod) {
   return apiMethod().then((response) => {
     // converts response to array
-    response = response instanceof Array ? response : [response]
+    response.content = response.content instanceof Array ? response.content : [response.content]
 
     return Promise.resolve(response)
   })

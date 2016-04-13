@@ -12,12 +12,7 @@
         return resp.json()
       })
       .then((json) => {
-        let responses = []
-
-        responses.push('Why not give this a listen 💃')
-        responses.push(_parseForTrack(json.tracks.items))
-
-        return responses
+        return _parseForTrack(json.tracks.items)
       })
   }
 
