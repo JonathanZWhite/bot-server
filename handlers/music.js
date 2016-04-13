@@ -10,7 +10,6 @@ class Music {
   get(message, bot) {
     return MusicService.get()
       .then((resp) => {
-        console.log(resp)
         bot.sendMessage(message.from, 'Why not give this a listen 💃')
 
         bot.sendMessage(message.from, resp, {
