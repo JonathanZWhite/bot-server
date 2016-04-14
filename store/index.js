@@ -14,17 +14,21 @@ let store = {
     return this._users[hash]
   },
 
+  clear: function(hash) {
+    this._users[hash] = []
+  },
+
   push: function(hash, data) {
     if (!this._users[hash]) this._users[hash] = []
 
     // state debugger: before
-    console.log('🔥  => Previous state snapshot')
+    console.log('🌑  => PREVIOUS STATE')
     console.log(this.getState(hash))
 
     this._users[hash].push(data)
 
     // state debugger: after
-    console.log('🔥  => Next state snapshot')
+    console.log('🌕  => NEXT STATE')
     console.log(this.getState(hash))
   },
 

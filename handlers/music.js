@@ -12,6 +12,8 @@ class Music {
   constructor() {}
 
   getGenreList(message, bot) {
+    // clears store for new command tree
+    store.clear(message.from)
     store.push(message.from, commands.GET_GENRE_LIST)
 
     bot.sendMessage(message.from, 'Choose a genre you would like a recommendation for 🎵', {
