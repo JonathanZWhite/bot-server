@@ -17,7 +17,15 @@ let store = {
   push: function(hash, data) {
     if (!this._users[hash]) this._users[hash] = []
 
+    // state debugger: before
+    console.log('🔥  => Previous state snapshot')
+    console.log(this.getState(hash))
+
     this._users[hash].push(data)
+
+    // state debugger: after
+    console.log('🔥  => Next state snapshot')
+    console.log(this.getState(hash))
   },
 
   peek: function(hash) {

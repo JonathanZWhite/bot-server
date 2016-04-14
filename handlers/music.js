@@ -8,7 +8,7 @@ class Music {
   constructor() {}
 
   getRecommendation(message, bot) {
-    return MusicService.get()
+    return MusicService.getRecommendation()
       .then((resp) => {
         bot.sendMessage(message.from, 'Why not give this a listen 💃')
 
