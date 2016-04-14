@@ -1,6 +1,7 @@
 const Music = require('./music')
-const music = new Music()
+const Casual = require('./casual')
 
 module.exports = {
-  music: music
+  casual: new Casual(),
+  music: new Music()
 }

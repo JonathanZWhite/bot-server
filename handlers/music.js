@@ -7,7 +7,7 @@ const logger = require('../utils/logger')
 class Music {
   constructor() {}
 
-  get(message, bot) {
+  getRecommendation(message, bot) {
     return MusicService.get()
       .then((resp) => {
         bot.sendMessage(message.from, 'Why not give this a listen 💃')
