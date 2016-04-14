@@ -3,23 +3,46 @@
 
 (function(module) {
   const fetch = require('node-fetch')
+  const Promise = require('bluebird')
+  const genresJSON = require('../data/genres')
+  const Spotify = require('spotify-web-api-node')
+  const config = require('../config')
 
   module.getRecommendation = getRecommendation
 
-  function getRecommendation() {
-    return fetch('https://api.spotify.com/v1/search?q=%22%22genre:%22r&b%22&type=track')
+  function getRecommendation(selectedGenre, limit) {
+    const spotify = new Spotify({
+      clientId : config.api.spotify.clientId,
+      clientSecret : config.api.spotify.clientSecret
+    })
+
+    return Promise.resolve()
+      .then(getSpotifyAccessToken)
+      .then(getRecommendation)
+
+    function getSpotifyAccessToken() {
+      return spotify.clientCredentialsGrant()
+        .then((data) => {
+          spotify.setAccessToken(data.body['access_token']);
+        })
+    }
+
+    function getRecommendation() {
+      return spotify.getRecommendations({
+        seed_genres: selectedGenre,
+        limit: limit
+      })
       .then((resp) => {
-        return resp.json()
+        return _parseForTrackList(resp.body.tracks, limit)
       })
-      .then((json) => {
-        return _parseForTrack(json.tracks.items)
-      })
+    }
   }
 
-  function _parseForTrack(songs) {
-    // generates gets random song from results
-    const songIndex = Math.floor((Math.random() * songs.length - 1));
+  function _parseForTrackList(songs, limit) {
+    songs = songs.slice(0, limit)
 
-    return songs[songIndex].external_urls.spotify
+    return songs.map((song) => {
+      return song.external_urls.spotify
+    })
   }
 }(exports));
