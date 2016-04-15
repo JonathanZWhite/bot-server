@@ -14,7 +14,7 @@ class Casual {
     bot.sendMessage(message.from, 'Here is what I can do 🤖', {
       reply_markup: {
         keyboard: [
-          ['Give a music recommendation']
+          ['Music recommendation']
         ]
       }
     })
