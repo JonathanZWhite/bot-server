@@ -8,7 +8,6 @@ const store = require('../store')
 const commands = require('../constants/commands')
 const genresJSON = require('../data/genres')
 const Spotify = require('spotify-web-api-node');
-const State = require('../store/state')
 
 class Music {
   constructor() {}
@@ -16,7 +15,7 @@ class Music {
   getGenreList(message, bot) {
     // clears store for new command tree
     store.clear(message.from)
-    store.push(message.from, new State(commands.GET_GENRE_LIST, {}))
+    store.update(message.from, { command: commands.GET_GENRE_LIST })
 
     bot.sendMessage(message.from, 'Choose a genre you would like a recommendation for 🎵', {
       reply_markup: {
@@ -38,9 +37,14 @@ class Music {
       })
     }
 
-    store.push(message.from, new State(commands.SET_NUMBER_OF_REC, {
-      genre: selectedGenre
-    }))
+    store.update(message.from, {
+      command: commands.SET_NUMBER_OF_REC,
+      spotify: {
+        genre: selectedGenre
+      }
+    })
+
+    console.log(store.getState(message.from))
 
     bot.sendMessage(message.from, 'How many songs would you like?', {
       reply_markup: {
@@ -53,13 +57,20 @@ class Music {
   }
 
   getRecommendation(message, bot) {
-    const state = store.peek(message.from)
+    store.update(message.from, {
+      command: commands.GET_RECOMMENDATION,
+      spotify: {
+        numberOfRecs: message.text
+      }
+    })
 
-    const selectedGenre = state.data.genre
-    const limit = message.text
+    const state = store.getState(message.from)
+
+    const selectedGenre = state.spotify.genre
+    const numberOfRecs = state.spotify.numberOfRecs
 
     // case: get recommendation
-    return MusicService.getRecommendation(selectedGenre, limit)
+    return MusicService.getRecommendation(selectedGenre, numberOfRecs)
       .then((resp) => {
         // case: no recommendation
         if (!resp.length) {

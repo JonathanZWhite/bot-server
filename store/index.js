@@ -1,5 +1,7 @@
 'use strict'
 
+const _ = require('lodash-node')
+
 /**
  * ## Store
  * temporary state store for information about
@@ -8,36 +10,37 @@
 let store = {
   _users: {},
 
+  // creates state tree
+  _initializeUser: function(hash) {
+    this._users[hash] = {
+      command: '',
+      spotify: {
+        genre: '',
+        numberOfRecs: 0
+      }
+    }
+  },
+
+  update: function(hash, data) {
+    if (!this._users[hash]) this._initializeUser(hash)
+
+    console.log('🌑  => PREVIOUS STATE')
+    console.log(this.getState(hash))
+
+    this._users[hash] = _.merge(this._users[hash], data)
+
+    console.log('🌕  => NEXT STATE')
+    console.log(this.getState(hash))
+  },
+
   getState: function(hash) {
-    if (!this._users[hash]) return []
+    if (!this._users[hash]) return this._initializeUser(hash)
 
     return this._users[hash]
   },
 
   clear: function(hash) {
-    this._users[hash] = []
-  },
-
-  push: function(hash, data) {
-    if (!this._users[hash]) this._users[hash] = []
-
-    // state debugger: before
-    console.log('🌑  => PREVIOUS STATE')
-    console.log(this.getState(hash))
-
-    this._users[hash].push(data)
-
-    // state debugger: after
-    console.log('🌕  => NEXT STATE')
-    console.log(this.getState(hash))
-  },
-
-  peek: function(hash) {
-    if (!this._users[hash]) return []
-
-    const top = this._users[hash].length - 1
-
-    return this._users[hash][top]
+    this._users[hash] = this._initializeUser()
   }
 }
 
