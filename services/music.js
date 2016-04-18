@@ -2,7 +2,6 @@
 'use strict';
 
 (function(module) {
-  const fetch = require('node-fetch')
   const Promise = require('bluebird')
   const genresJSON = require('../data/genres')
   const Spotify = require('spotify-web-api-node')
