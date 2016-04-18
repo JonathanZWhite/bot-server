@@ -39,7 +39,7 @@ let store = {
     return this._users[hash]
   },
 
-  clear: function(hash) {
+  clearState: function(hash) {
     this._users[hash] = this._initializeUser()
   }
 }
