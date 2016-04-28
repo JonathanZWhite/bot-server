@@ -8,7 +8,7 @@ This particular example of the server provides Spotify music recommendations whe
 Run `$ npm install`
 
 #### Telegram
-1. Go into Telegram, talk to [BotFather](telegram.me/botfather).
+1. Go into Telegram, talk to [BotFather](https://telegram.me/botfather).
 2. Create a new bot.
 3. Take the telegram token and add it to your environment variables or update `/config/index.js`
 4. If you want to set your environment variable run `$ export TELEGRAM_TOKEN=your_token_here`
