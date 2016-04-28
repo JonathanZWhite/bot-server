@@ -1,5 +1,5 @@
 # Bot Server
-Example server-side infrastructure for building and supporting conversational interfaces. If you want to find out more, check out my Medium posts [here]().
+Example server-side infrastructure for building and supporting conversational interfaces. If you want to find out more, check out my Medium post [here](https://medium.com/@JonathanZWhite/server-side-infrastructure-when-bots-invade-a2252e9d4bc9).
 
 This particular example of the server provides Spotify music recommendations when you talk to your bot. If you want to try the bot out without running the server, send a message to [@HelloAriaBot](telegram.me/HelloAriaBot) on Telegram.
 
