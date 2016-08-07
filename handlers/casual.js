@@ -7,7 +7,11 @@ class Casual {
   constructor() {}
 
   getGreeting(message, bot) {
-    bot.sendMessage(message.from, 'Well hello there 🤖')
+    bot.sendMessage(message.from, 'Well hello there,' + message.from)
+  }
+
+  getUnrecognized(message, bot) {
+    bot.sendMessage(message.from, 'Sorry I don\'t follow')
   }
 
   getHelp(message, bot) {

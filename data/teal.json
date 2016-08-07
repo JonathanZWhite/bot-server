@@ -1,0 +1,26 @@
+{
+"champagne":{
+    "id": 0,
+    "name": "Champagne Room",
+    "description": "Absolutely no sex is allowed here. There are chairs arranged around a coffee table with magazines in the center of the room. There is one drug on the table next to a spoon.",
+"exits": [],
+"items": [],
+"isQuitRoom": false
+}, 
+"quiet":{
+    "id": 1,
+    "name": "Quiet Room",
+    "description": "The walls are covered with art that seems misguided. This room is for relaxing, and you can tell. Plants grow from the ceiling in long vines.",
+    "exits": [],
+    "items": [],
+    "isQuitRoom": false
+}, 
+"sun":{
+    "id": 2,
+    "name": "Sun Room",
+    "description": "Light spills in from the 3 walls of windows around you. There is a large pile of sand with a stingray floating lazily above it",
+    "exits": [],
+    "items": [],
+    "isQuitRoom": false
+}
+}
