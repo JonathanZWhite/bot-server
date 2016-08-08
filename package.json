@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/JonathanZWhite/bot-server#readme",
   "devDependencies": {
+    "dotenv": "^2.0.0",
     "nodemon": "^1.9.1"
   },
   "dependencies": {

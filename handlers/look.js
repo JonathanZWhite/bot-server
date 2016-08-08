@@ -6,18 +6,18 @@ const store = require('../store')
 const LocationService = require('../services/locations')
 
 class Look {
-  constructor() {}
+    constructor() {}
 
-  getLookString(message, bot) {
-  	store.getState(message.from)
-  	console.log('roomlist', LocationService.roomsList)
-	getRoomDescription(message, bot)
+    getLookString(message, bot) {
+        store.getState(message.from)
+        getRoomDescription(message, bot)
 
-  	function getRoomDescription(message, bot) {
-  	// room = LocationService
-  	return LocationService.getRoomDescription(message.from)
-  }
-  }
-}
+        function getRoomDescription(message, bot) {
+            // room = LocationService
+             var str = LocationService.getRoomDescription(message.from) 
+             bot.sendMessage(message.from, str)
+           }
+        }
+    }
 
 module.exports = Look

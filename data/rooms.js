@@ -14,14 +14,14 @@ Rooms.prototype.loadRooms = function() {
             let item = json[key]
             let room = new Room(item.id, item.name, item.description, item.exits, item.items, item.isQuitRoom)
             this.roomList[item.id] = room
-
         }
     }
 
     console.log('The rooms were just loaded!')
+    // console.log('roomlist:', this.roomList["0"].getDescription())
     return this.roomList
-}
 
+}
 
 /**
  * Room Constructor
@@ -52,7 +52,7 @@ Room.prototype.getName = function() {
 Room.prototype.getDescription = function() {
     return this.description
 }
-Room.prototype.getDescription = function() {
+Room.prototype.getExits = function() {
     return this.exits
 }
 Room.prototype.getItems = function() {
@@ -62,3 +62,5 @@ Room.prototype.removeItem = function(item) { delete this.items[item] }
 Room.prototype.addItem = function(item) { this.items.push(item) }
 
 module.exports = Rooms
+
+
