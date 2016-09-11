@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/JonathanZWhite/bot-server#readme",
   "devDependencies": {
+    "dotenv": "^2.0.0",
     "nodemon": "^1.9.1"
   },
   "dependencies": {
@@ -25,7 +26,6 @@
     "isomorphic-fetch": "^2.2.1",
     "lodash-node": "^3.10.2",
     "node-telegram-bot-api": "^0.21.1",
-    "spotify-web-api-node": "^2.3.0",
     "winston": "^2.2.0"
   }
 }
